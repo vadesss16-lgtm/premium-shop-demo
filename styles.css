@@ -1,0 +1,103 @@
+/* ===== Плавне завантаження сторінки ===== */
+body {
+  animation: fadeIn 0.6s ease-in-out;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Header ===== */
+header {
+  text-align: center;
+  padding: 20px;
+  background: #ff6a00;
+  color: #fff;
+}
+header h1 {
+  margin: 0;
+}
+
+/* ===== Картки товарів ===== */
+.products {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+.product-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 250px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.product-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+.product-card img {
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+.product-card:hover img {
+  transform: scale(1.05);
+}
+.product-card h3 {
+  margin: 10px 0 5px;
+}
+.product-card p {
+  padding: 0 10px;
+  color: #555;
+}
+
+/* ===== Кнопки ===== */
+.btn, button {
+  display: inline-block;
+  background: #333;
+  color: #fff;
+  padding: 8px 14px;
+  margin: 10px 0 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+.btn:hover, button:hover {
+  background-color: #ff6a00;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(255,106,0,0.4);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #333;
+  color: #fff;
+}
+
+/* ===== Посилання ===== */
+a {
+  transition: color 0.25s ease;
+}
+a:hover {
+  color: #ff6a00;
+}
+
+/* ===== Scroll reveal effect ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
