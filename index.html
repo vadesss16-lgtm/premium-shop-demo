@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Преміум-магазин</title>
+  <meta name="description" content="Преміум-вітрина з адаптивним дизайном, wow-ефектами та брендингом." />
+  <meta name="keywords" content="магазин, преміум, товари, UX, демо" />
+  <meta property="og:title" content="Преміум-магазин" />
+  <meta property="og:description" content="Демо вітрина з преміум UX та адаптивом" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1515442261605-cd4ce37b7c2a?w=1200" />
+  <meta property="og:url" content="https://YOUR-GITHUB-LOGIN.github.io/premium-shop-demo/" />
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="Логотип" class="logo" />
+    <h1>Преміум-магазин</h1>
+    <div class="cart">🛒 <span id="cart-count">0</span></div>
+  </header>
+
+  <main class="product-grid">
+    <div class="card" data-title="Кава Premium" data-desc="Ароматна кава арабіка." data-price="200 грн" data-img="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800">
+      <span class="label hit">ХІТ</span>
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400" alt="Кава Premium" />
+      <h3>Кава Premium</h3>
+      <p class="price">200 грн</p>
+      <button class="add-to-cart">Додати в кошик</button>
+    </div>
+
+    <div class="card" data-title="Чай Matcha" data-desc="Японський зелений чай матча." data-price="150 грн" data-img="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=800">
+      <span class="label new">НОВИНКА</span>
+      <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400" alt="Чай Matcha" />
+      <h3>Чай Matcha</h3>
+      <p class="price">150 грн</p>
+      <button class="add-to-cart">Додати в кошик</button>
+    </div>
+
+    <div class="card" data-title="Шоколад Noir" data-desc="Темний шоколад 85%." data-price="120 грн" data-img="https://images.unsplash.com/photo-1587137964287-624e63d4ff8b?w=800">
+      <img src="https://images.unsplash.com/photo-1587137964287-624e63d4ff8b?w=400" alt="Шоколад Noir" />
+      <h3>Шоколад Noir</h3>
+      <p class="price">120 грн</p>
+      <button class="add-to-cart">Додати в кошик</button>
+    </div>
+
+    <div class="card" data-title="Мед натуральний" data-desc="Квітковий мед із Карпат." data-price="180 грн" data-img="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=800">
+      <span class="label hit">ХІТ</span>
+      <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=400" alt="Мед натуральний" />
+      <h3>Мед натуральний</h3>
+      <p class="price">180 грн</p>
+      <button class="add-to-cart">Додати в кошик</button>
+    </div>
+  </main>
+
+  <!-- Модальне вікно -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" id="close">&times;</span>
+      <img id="modal-img" src="" alt="" />
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+      <div class="price" id="modal-price"></div>
+    </div>
+  </div>
+
+  <script>
+    let cartCount = 0;
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        cartCount++;
+        document.getElementById('cart-count').textContent = cartCount;
+      });
+    });
+
+    const modal = document.getElementById('modal');
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.getElementById('modal-title').textContent = card.dataset.title;
+        document.getElementById('modal-desc').textContent = card.dataset.desc;
+        document.getElementById('modal-price').textContent = card.dataset.price;
+        document.getElementById('modal-img').src = card.dataset.img;
+        modal.style.display = 'flex';
+      });
+    });
+
+    document.getElementById('close').onclick = () => modal.style.display = 'none';
+    window.onclick = e => { if (e.target == modal) modal.style.display = 'none'; }
+  </script>
+</body>
+</html>

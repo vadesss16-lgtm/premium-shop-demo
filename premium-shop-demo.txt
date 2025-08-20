@@ -1,0 +1,6 @@
+premium-shop-demo/
+│
+├── index.html
+├── css/
+│   └── style.css
+└── README.txt
